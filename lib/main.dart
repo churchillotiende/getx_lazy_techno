@@ -4,7 +4,7 @@ import 'package:lazy_techno/modules/product/controllers/cart_controller.dart';
 import 'package:lazy_techno/modules/routes/app_pages.dart';
 
 void main() {
-  Get.put(CartController());
+  // Get.put(CartController());
   runApp(const MyApp());
 }
 

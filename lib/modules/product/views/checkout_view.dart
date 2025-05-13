@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:lazy_techno/modules/routes/app_pages.dart';
 
 class CheckoutView extends StatelessWidget {
+  const CheckoutView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

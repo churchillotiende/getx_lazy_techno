@@ -7,6 +7,9 @@ import 'package:lazy_techno/modules/routes/app_pages.dart';
 class ProductDetailsView extends StatelessWidget {
   ProductDetailsView({super.key});
 
+  // INFO: Get.find finds an instance of this controller that has been instantiated before
+  // INFO: Get.put creates an instance of this controller in this view
+  // calling .put again here will re-initialize the controller
   final CartController cartController = Get.find<CartController>();
 
   @override

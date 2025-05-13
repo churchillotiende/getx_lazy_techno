@@ -6,7 +6,7 @@ import 'package:lazy_techno/modules/routes/app_pages.dart';
 class ProductView extends StatelessWidget {
   ProductView({super.key});
 
-  final ProductController productController = Get.put(ProductController());
+  final ProductController productController = Get.find<ProductController>();
 
   @override
   Widget build(BuildContext context) {
