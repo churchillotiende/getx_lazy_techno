@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lazy_techno/modules/product/controllers/cart_controller.dart';
+import 'package:lazy_techno/modules/routes/app_pages.dart';
 
 class CartView extends StatelessWidget {
   CartView({super.key});
@@ -37,9 +38,16 @@ class CartView extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Text(
                 'Total: \$${cartController.totalAmount.value.toStringAsFixed(2)}',
+                style: TextStyle(fontSize: 20),
               ),
             );
           }),
+          ElevatedButton(
+            onPressed: () {
+              Get.toNamed(Routes.checkout);
+            },
+            child: Text('Proceed to Checkout'),
+          ),
         ],
       ),
     );

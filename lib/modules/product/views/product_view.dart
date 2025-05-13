@@ -23,6 +23,19 @@ class ProductView extends StatelessWidget {
               subtitle: Text('\$${product.price.toString()}'),
               onTap: () {
                 Get.toNamed(Routes.productDetails, arguments: product);
+                // INFO: Is like router.replace(), the current route wont be in history,
+                // but all any previous stack will be maintained in the history stack
+                // Get.offNamed(Routes.productDetails, arguments: product);
+
+                // INFO: Is like router.replace(), no back button, and the history stack is cleared as well
+                // Get.offAllNamed(Routes.productDetails, arguments: product);
+
+                // INFO: using the class
+                // Get.to(ClassNameView());
+                // ...
+
+                // INFO: Programmatic routing
+                // onPressed: () { Get.back(); }
               },
             );
           },

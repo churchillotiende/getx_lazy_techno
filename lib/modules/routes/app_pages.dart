@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:lazy_techno/modules/product/views/cart_view.dart';
+import 'package:lazy_techno/modules/product/views/checkout_view.dart';
 import 'package:lazy_techno/modules/product/views/product_details_view.dart';
 import 'package:lazy_techno/modules/product/views/product_view.dart';
 
@@ -10,5 +11,6 @@ class AppPages {
     GetPage(name: Routes.product, page: () => ProductView()),
     GetPage(name: Routes.productDetails, page: () => ProductDetailsView()),
     GetPage(name: Routes.cart, page: () => CartView()),
+    GetPage(name: Routes.checkout, page: () => CheckoutView()),
   ];
 }

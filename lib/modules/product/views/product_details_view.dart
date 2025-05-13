@@ -21,6 +21,7 @@ class ProductDetailsView extends StatelessWidget {
             icon: Icon(Icons.shopping_cart),
             onPressed: () {
               Get.toNamed(Routes.cart);
+              // Get.offNamed(Routes.cart);
             },
           ),
         ],
