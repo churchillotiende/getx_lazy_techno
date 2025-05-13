@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lazy_techno/modules/product/controllers/cart_controller.dart';
 import 'package:lazy_techno/routes/app_pages.dart';
 
 class CheckoutView extends StatelessWidget {
@@ -7,6 +8,8 @@ class CheckoutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final CartController cartController = Get.find<CartController>();
+
     return Scaffold(
       appBar: AppBar(title: Text('Checkout')),
       body: Center(
@@ -20,9 +23,20 @@ class CheckoutView extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
+                cartController.cartService.clearCart();
+
+                Get.snackbar(
+                  'Added to Cart',
+                  'Your order has been successfully placed!',
+                  snackPosition: SnackPosition.BOTTOM,
+                  duration: Duration(seconds: 2),
+                  backgroundColor: Colors.blue,
+                  colorText: Colors.white,
+                );
+
                 Get.offAllNamed(Routes.product);
               },
-              child: Text('Go to Home'),
+              child: Text('Place Order'),
             ),
           ],
         ),
