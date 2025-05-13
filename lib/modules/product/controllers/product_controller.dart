@@ -1,16 +1,33 @@
 import 'package:get/get.dart';
 import 'package:lazy_techno/modules/product/models/product_model.dart';
+import 'package:lazy_techno/services/product_service.dart';
 
 class ProductController extends GetxController {
   var products = <ProductModel>[].obs;
+  var errorMessage = ''.obs;
+  var isLoading = true.obs;
+
+  final ProductService productService;
+
+  ProductController({required this.productService});
 
   @override
   void onInit() {
-    products.addAll([
-      ProductModel(name: 'Product 1', price: 29.99),
-      ProductModel(name: 'Product 2', price: 59.99),
-      ProductModel(name: 'Product 3', price: 99.99),
-    ]);
     super.onInit();
+    fetchProducts();
+  }
+
+  void fetchProducts() async {
+    try {
+      isLoading(true);
+      errorMessage('');
+      var products = await productService.fetchProducts();
+      this.products.assignAll(products);
+    } catch (e) {
+      print(e);
+      errorMessage('Failed to fetch products');
+    } finally {
+      isLoading(false);
+    }
   }
 }

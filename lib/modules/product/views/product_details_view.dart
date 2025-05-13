@@ -33,7 +33,7 @@ class ProductDetailsView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(product.name, style: TextStyle(fontSize: 24)),
+            Text(product.title, style: TextStyle(fontSize: 24)),
             SizedBox(height: 10),
             Text("\$${product.price}", style: TextStyle(fontSize: 24)),
             SizedBox(height: 10),
@@ -42,7 +42,7 @@ class ProductDetailsView extends StatelessWidget {
                 cartController.addToCart(product);
                 Get.snackbar(
                   'Added to Cart',
-                  '${product.name} added to your cart',
+                  '${product.title} added to your cart',
                   snackPosition: SnackPosition.BOTTOM,
                   duration: Duration(seconds: 2),
                   backgroundColor: Colors.green,
