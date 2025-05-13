@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get.dart' hide Translations;
 import 'package:get_storage/get_storage.dart';
 import 'package:lazy_techno/routes/app_pages.dart';
 import 'package:lazy_techno/services/cart_service.dart';
+import 'package:lazy_techno/services/theme_service.dart';
+import 'package:lazy_techno/services/translations.dart';
 
 void main() async {
   await GetStorage.init();
@@ -21,6 +23,12 @@ class MyApp extends StatelessWidget {
       title: 'Product App',
       initialRoute: Routes.product,
       getPages: AppPages.routes,
+      translations: Translations(),
+      locale: Locale('en', 'US'),
+      fallbackLocale: Locale('en', 'US'),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeService().theme,
     );
   }
 }
