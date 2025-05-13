@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lazy_techno/modules/product/controllers/product_controller.dart';
-import 'package:lazy_techno/modules/routes/app_pages.dart';
+import 'package:lazy_techno/routes/app_pages.dart';
 
 class ProductView extends StatelessWidget {
   ProductView({super.key});

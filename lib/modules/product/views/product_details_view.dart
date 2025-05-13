@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lazy_techno/modules/product/controllers/cart_controller.dart';
 import 'package:lazy_techno/modules/product/models/product_model.dart';
-import 'package:lazy_techno/modules/routes/app_pages.dart';
+import 'package:lazy_techno/routes/app_pages.dart';
 
 class ProductDetailsView extends StatelessWidget {
   ProductDetailsView({super.key});
@@ -43,9 +43,42 @@ class ProductDetailsView extends StatelessWidget {
                 Get.snackbar(
                   'Added to Cart',
                   '${product.name} added to your cart',
+                  snackPosition: SnackPosition.BOTTOM,
+                  duration: Duration(seconds: 2),
+                  backgroundColor: Colors.green,
+                  colorText: Colors.white,
                 );
               },
               child: Text('Add to Cart'),
+            ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                Get.bottomSheet(
+                  Container(
+                    color: Colors.white,
+                    child: Wrap(
+                      children: [
+                        ListTile(
+                          leading: Icon(Icons.shopping_cart),
+                          title: Text('View Cart'),
+                          onTap: () {
+                            Get.toNamed(Routes.cart);
+                          },
+                        ),
+                        ListTile(
+                          leading: Icon(Icons.payment),
+                          title: Text('Proceed to Checkout'),
+                          onTap: () {
+                            Get.toNamed(Routes.checkout);
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+              child: Text('More Actions'),
             ),
           ],
         ),

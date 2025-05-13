@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lazy_techno/modules/product/controllers/cart_controller.dart';
-import 'package:lazy_techno/modules/routes/app_pages.dart';
+import 'package:lazy_techno/routes/app_pages.dart';
 
 class CartView extends StatelessWidget {
   CartView({super.key});
@@ -25,7 +25,23 @@ class CartView extends StatelessWidget {
                     title: Text(item.name),
                     subtitle: Text('\$${item.price.toString()}'),
                     trailing: IconButton(
-                      onPressed: () => cartController.removeFromCart(item),
+                      onPressed: () {
+                        Get.defaultDialog(
+                          title: 'Remove Item',
+                          middleText:
+                              'Are you sure you want to remove ${item.name} from the cart?',
+                          textConfirm: 'Yes',
+                          textCancel: 'No',
+                          confirmTextColor: Colors.white,
+                          onConfirm: () {
+                            cartController.removeFromCart(item);
+                            Get.back();
+                          },
+                          onCancel: () {
+                            Get.back();
+                          },
+                        );
+                      },
                       icon: Icon(Icons.remove_circle_outline),
                     ),
                   );

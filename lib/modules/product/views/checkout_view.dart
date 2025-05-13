@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lazy_techno/modules/routes/app_pages.dart';
+import 'package:lazy_techno/routes/app_pages.dart';
 
 class CheckoutView extends StatelessWidget {
   const CheckoutView({super.key});
