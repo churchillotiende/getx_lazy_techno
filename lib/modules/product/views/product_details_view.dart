@@ -4,7 +4,7 @@ import 'package:lazy_techno/modules/product/controllers/cart_controller.dart';
 import 'package:lazy_techno/modules/product/models/product_model.dart';
 
 class ProductDetailsView extends StatelessWidget {
-  final CartController cartController = Get.find<CartController>();
+  final CartController cartController = Get.put(CartController());
   // const ProductDetailsView({super.key});
 
   @override
