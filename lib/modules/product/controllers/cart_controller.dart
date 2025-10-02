@@ -7,9 +7,15 @@ class CartController extends GetxController {
 
   void addToCart(ProductModel product) {
     cartItems.add(product);
+    calculateTotal();
   }
 
   void removeFromCart(ProductModel product) {
     cartItems.add(product);
+    calculateTotal();
+  }
+
+  void calculateTotal() {
+    totalAmount.value = cartItems.fold(0, (sum, item) => sum + item.price);
   }
 }
