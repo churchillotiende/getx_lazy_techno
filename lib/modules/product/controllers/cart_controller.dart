@@ -1,21 +1,18 @@
 import 'package:get/get.dart';
+import 'package:lazy_techno/app/services/cart_service.dart';
 import 'package:lazy_techno/modules/product/models/product_model.dart';
 
 class CartController extends GetxController {
+  final CartService cartService = Get.find<CartService>();
+  List<ProductModel> get cartItems => cartService.cartItems;
   var cartItems = <ProductModel>[].obs;
-  var totalAmount = 0.0.obs;
+  double get totalAmount => cartService.totalAmount;
 
   void addToCart(ProductModel product) {
-    cartItems.add(product);
-    calculateTotal();
+    cartService.addToCart(product);
   }
 
   void removeFromCart(ProductModel product) {
-    cartItems.remove(product);
-    calculateTotal();
-  }
-
-  void calculateTotal() {
-    totalAmount.value = cartItems.fold(0, (sum, item) => sum + item.price);
+    cartService.removeFromCart(product);
   }
 }
