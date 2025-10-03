@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lazy_techno/modules/product/controllers/cart_controller.dart';
 import 'package:lazy_techno/modules/product/models/product_model.dart';
+import 'package:lazy_techno/modules/routes/app_pages.dart';
 
 class ProductDetailsView extends StatelessWidget {
   final CartController cartController = Get.put(CartController());
@@ -17,6 +18,9 @@ class ProductDetailsView extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {
+                print("Button clicked");
+                print("Current route: ${Get.currentRoute}");
+                print("Navigating to: ${Routes.cart}");
                 Get.toNamed('/cart');
               },
               icon: Icon(Icons.shopping_cart))

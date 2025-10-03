@@ -11,7 +11,7 @@ class CartController extends GetxController {
   }
 
   void removeFromCart(ProductModel product) {
-    cartItems.add(product);
+    cartItems.remove(product);
     calculateTotal();
   }
 
