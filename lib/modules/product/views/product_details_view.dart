@@ -37,7 +37,13 @@ class ProductDetailsView extends StatelessWidget {
                 onPressed: () {
                   cartController.addToCart(product);
                   Get.snackbar(
-                      'Added to cart', '${product.name} added to your cart');
+                    'Added to cart',
+                    '${product.name} added to your cart',
+                    snackPosition: SnackPosition.BOTTOM,
+                    duration: Duration(seconds: 2),
+                    backgroundColor: Colors.green,
+                    colorText: Colors.white,
+                  );
                 },
                 child: Text('Add to cart'))
           ],
