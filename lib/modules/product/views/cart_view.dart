@@ -34,7 +34,13 @@ class CartView extends StatelessWidget {
                 style: TextStyle(fontSize: 24),
               ),
             );
-          })
+          }),
+          ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/checkout');
+                print("Checkout button has been pressed");
+              },
+              child: Text("Proceed to checkout"))
         ],
       ),
     );
