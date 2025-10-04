@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lazy_techno/app/services/cart_service.dart';
 import 'package:lazy_techno/modules/product/controllers/cart_controller.dart';
 
 class CartView extends StatelessWidget {
   final CartController cartController = Get.find<CartController>();
+  final CartService cartService = Get.find<CartService>();
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +49,7 @@ class CartView extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
-                'Total: \$${cartController.totalAmount.value.toStringAsFixed(2)}',
+                'Total: \$${cartService.totalAmount.value.toStringAsFixed(2)}',
                 style: TextStyle(fontSize: 24),
               ),
             );

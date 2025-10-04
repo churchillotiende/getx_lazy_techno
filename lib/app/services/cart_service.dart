@@ -16,22 +16,23 @@ class CartService extends GetxService {
     }
 
     ever(cartItems, (_) {
-      storage.write('cartItems', cartItems.map((e) => e.tojson().toList()));
+      storage.write('cartItems', cartItems.map((e) => e.toJson()).toList());
     });
+  }
 
-    void addToCart(ProductModel product) {
-      cartItems.add(product);
-    }
+  void addToCart(ProductModel product) {
+    cartItems.add(product);
+  }
 
-    void removeFromCart(ProductModel product) {
-      cartItems.remove(product);
-    }
+  void removeFromCart(ProductModel product) {
+    cartItems.remove(product);
+  }
 
-    void clearCart() {
-      cartItems.clear();
-    }
-    double get totalAmount{
-      return cartItems.fold(0,(sum,item) => sum + item.price);
-    }
+  void clearCart() {
+    cartItems.clear();
+  }
+
+  double get totalAmount {
+    return cartItems.fold(0, (sum, item) => sum + item.price);
   }
 }
