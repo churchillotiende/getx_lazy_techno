@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lazy_techno/app/services/theme_service.dart';
 import 'package:lazy_techno/modules/product/controllers/product_controller.dart';
 import 'package:lazy_techno/modules/routes/app_pages.dart';
 
@@ -9,7 +10,27 @@ class ProductView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('product_list'.tr)),
+      appBar: AppBar(
+        title: Text('product_list'.tr),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.language),
+            onPressed: () {
+              if (Get.locale == Locale('en', 'US')) {
+                Get.updateLocale(Locale('es', 'ES'));
+              } else {
+                Get.updateLocale(Locale('en', 'US'));
+              }
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.brightness_6),
+            onPressed: () {
+              ThemeService().switchTheme();
+            },
+          ),
+        ],
+      ),
       body: Obx(() {
         if (productController.isLoading.value) {
           return Center(child: CircularProgressIndicator());
