@@ -49,7 +49,7 @@ class CartView extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
-                'Total: \$${cartService.totalAmount.value.toStringAsFixed(2)}',
+                'Total: \$${cartService.totalAmount.toStringAsFixed(2)}',
                 style: TextStyle(fontSize: 24),
               ),
             );
