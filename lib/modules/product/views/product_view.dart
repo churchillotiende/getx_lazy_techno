@@ -9,7 +9,7 @@ class ProductView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Product List')),
+      appBar: AppBar(title: Text('product_list'.tr)),
       body: Obx(() {
         if (productController.isLoading.value) {
           return Center(child: CircularProgressIndicator());
