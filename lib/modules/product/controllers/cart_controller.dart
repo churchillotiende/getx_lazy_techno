@@ -5,7 +5,6 @@ import 'package:lazy_techno/modules/product/models/product_model.dart';
 class CartController extends GetxController {
   final CartService cartService = Get.find<CartService>();
   List<ProductModel> get cartItems => cartService.cartItems;
-  var cartItems = <ProductModel>[].obs;
   double get totalAmount => cartService.totalAmount;
 
   void addToCart(ProductModel product) {
